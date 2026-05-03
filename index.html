@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Di Bella - Experiencia Digital</title>
+    <!-- Iconos para los contactos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #2346CB;
+            --secondary-grey: #000000;
+            --nav-bg: #2346CB;
+            --pure-black: #B3B3B3;
+            --pure-white: #000000;
+            --aura-glow: rgba(255, 255, 255, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: var(--pure-black);
+            color: var(--pure-white);
+        }
+
+        /* Navegación */
+        nav {
+            background-color: var(--nav-bg);
+            padding: 0.8rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--primary-blue); 
+            box-shadow: 0 10px 30px #2346CB;
+        }
+
+        .logo img {
+            height: 45px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-aura {
+            color: #FFFFFF !important;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+        }
+
+        .btn-aura:hover {
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 20px var(--aura-glow);
+        }
+
+        .btn-main {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #FFFFFF !important;
+        }
+
+        /* SECCIONES */
+        .view-section {
+            display: none;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        .view-section.active {
+            display: block;
+        }
+
+        .video-block {
+            background-color: var(--pure-black);
+            padding: 60px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        video {
+            width: 100%;
+            max-width: 900px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(35, 70, 203, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .info-block {
+            background-color: var(--primary-blue);
+            padding: 80px 20px;
+            color: #FFFFFF;
+        }
+
+        .content-container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .text-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .text-intro h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .faq-header {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 10px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .faq-btn {
+            width: 100%;
+            padding: 22px;
+            border: none;
+            background: none;
+            text-align: left;
+            font-weight: bold;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            font-size: 1rem;
+        }
+
+        .faq-text {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s;
+        }
+
+        .faq-text p {
+            padding: 0 22px 22px 22px;
+            color: #E0E0E0;
+            line-height: 1.6;
+        }
+
+        /* VISTAS ALTERNATIVAS */
+        .full-aura-view {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .aura-card {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 60px;
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            max-width: 800px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* FOOTER UNIFICADO */
+        footer {
+            background: #111111;
+            padding: 30px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-contacts {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .footer-link {
+            color: #FFFFFF;
+            font-size: 1.2rem; /* Tamaño más chico como pediste */
+            transition: 0.3s;
+            opacity: 0.7;
+            text-decoration: none;
+        }
+
+        .footer-link:hover {
+            opacity: 1;
+            color: var(--primary-blue);
+            transform: translateY(-2px);
+        }
+
+        .copyright {
+            font-size: 0.75rem;
+            opacity: 0.5;
+            letter-spacing: 1px;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo" onclick="showSection('inicio')">
+            <img src="Logo.png" alt="Logo Di Bella">
+        </div>
+        <div class="nav-links">
+            <button class="btn-aura" onclick="showSection('quienes')">¿Quiénes somos?</button>
+            <button class="btn-aura" onclick="showSection('como')">¿Cómo trabajamos?</button>
+            <a href="https://dibellacapitalgroup.com" class="btn-aura btn-main">Volver a web</a>
+        </div>
+    </nav>
+
+    <main>
+        <section id="inicio" class="view-section active">
+            <div class="video-block">
+                <video controls>
+                    <source src="video.mp4" type="video/mp4">
+                </video>
+            </div>
+            
+            <div class="info-block">
+                <div class="content-container">
+                    <div class="text-intro">
+                        <h1>Transformación Digital</h1>
+                        <p>En <strong>Di Bella Group</strong>, impulsamos la evolución de los activos tradicionales hacia el ecosistema digital mediante una tokenización segura y transparente.</p>
+                    </div>
+
+                    <h2 class="faq-header">Preguntas Frecuentes</h2>
+
+                   <div class="faq-box">
+                        <div class="faq-item">
+                            <button class="faq-btn" onclick="toggleFaq(this)">¿Qué es exactamente la tokenización? <span>+</span></button>
+                            <div class="faq-text"><p>Es el proceso de representar un activo físico mediante unidades digitales llamadas tokens. Convertimos el valor de un bien real en un formato digital para que sea más fácil de dividir, gestionar y transferir, manteniendo siempre su respaldo legal.</p></div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-btn" onclick="toggleFaq(this)">¿Qué se puede tokenizar? <span>+</span></button>
+                            <div class="faq-text"><p>Prácticamente cualquier activo de la economía real que tenga un valor claro y respaldo legal. No existen límites técnicos, pero nos enfocamos principalmente en:</p>
+                                                    <p>Real Estate: Edificios, complejos turísticos, hoteles y depósitos logísticos.</p>
+                                                    <p>Agroindustria: Tierras, cosechas futuras, ganado y maquinaria.</p>
+                                                    <p>Proyectos Corporativos: Acciones de empresas, participaciones en proyectos y contratos de inversión.</p>
+                                                   <p>Infraestructura y Energía: Parques solares, plantas industriales y obras viales.</p>
+                                                   <p>Activos Financieros: Derechos de cobro, flujos de caja y facturas.</p>
+                                                    <p>Bienes de Lujo: Oro, metales preciosos, obras de arte y autos de colección.</p></div>
+                        </div>
+                        <div class="faq-box">
+                        <div class="faq-item">
+                            <button class="faq-btn" onclick="toggleFaq(this)">¿Qué seguridad legal tiene un token? <span>+</span></button>
+                            <div class="faq-text"><p>El token es la representación digital de un derecho legal. Cada proceso está respaldado por contratos y estructuras jurídicas que aseguran que el dueño del token tenga los mismos derechos que en un sistema tradicional. La tecnología garantiza que estos registros sean inmutables y no se puedan falsificar.</p></div>
+                        </div>
+                         <div class="faq-box">
+                        <div class="faq-item">
+                            <button class="faq-btn" onclick="toggleFaq(this)">¿Por qué es mejor tokenizar que usar el sistema tradicional?<span>+</span></button>
+                            <div class="faq-text"><p>El sistema tradicional suele ser lento y burocrático. La tokenización ofrece liquidez para mover el capital rápido, divisibilidad para fraccionar activos grandes en partes pequeñas y transparencia total sin errores humanos.</p></div>
+                        </div>
+                        <div class="faq-box">
+                        <div class="faq-item">
+                            <button class="faq-btn" onclick="toggleFaq(this)">¿Necesito conocimientos técnicos para operar?<span>+</span></button>
+                            <div class="faq-text"><p>No. Nuestra plataforma está diseñada para que la gestión sea intuitiva. Nosotros nos encargamos de toda la complejidad tecnológica y legal para que el cliente solo se ocupe de la administración de su capital.</p></div>
+                        </div>
+                        <div class="faq-box">
+                        <div class="faq-item">
+                            <button class="faq-btn" onclick="toggleFaq(this)">¿Cómo se controla el valor del token?<span>+</span></button>
+                            <div class="faq-text"><p>El valor está atado directamente al activo real que representa. Si el activo físico se valoriza o genera dividendos (como un alquiler o una cosecha), el valor del token refleja proporcionalmente esa ganancia.</p></div>
+                        </div>
+                        <div class="faq-box">
+                        <div class="faq-item">
+                            <button class="faq-btn" onclick="toggleFaq(this)">¿Cuál es el alcance geográfico de la empresa?<span>+</span></button>
+                            <div class="faq-text"><p>Somos una empresa con visión y capacidad de operación internacional. Esto permite que los activos se conecten con estándares de gestión globales, eliminando las fronteras y las trabas locales.</p></div>
+                        </div>
+                        <div class="faq-box">
+                        <div class="faq-item">
+                            <button class="faq-btn" onclick="toggleFaq(this)">¿Todos los proyectos son aptos para tokenizar?<span>+</span></button>
+                            <div class="faq-text"><p>No. Por eso, nuestro primer paso es siempre una auditoría de viabilidad. Solo avanzamos con proyectos que tengan un respaldo sólido y un potencial real. Cada solución que entregamos es 100% personalizada, ajustada a los objetivos específicos de cada cliente y a la naturaleza de su activo.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quienes" class="view-section">
+            <div class="full-aura-view">
+                <div class="aura-card">
+                    <h2 style="margin-bottom: 20px; font-weight: 200; font-size: 2.5rem;">Nosotros</h2>
+                    <p style="font-size: 1.2rem; line-height: 2;">
+                           <p>Somos <b>Di Bella Capital Group</b>, una empresa de tecnología financiera especializada en la tokenización de activos de la economía real.</p>
+                        <p>Nos dedicamos a transformar bienes físicos y proyectos tangibles en activos digitales para darles la liquidez, agilidad y transparencia que el mercado actual exige.</p>
+                        <p>Nacimos al identificar un problema real: lo difícil que es mover capital en activos de alto valor por culpa de la burocracia y los sistemas lentos. Por eso, creamos una infraestructura que permite que propiedades, infraestructura y proyectos productivos se conviertan en unidades digitales fáciles de administrar y dividir.</p>
+                        <p>En <b>Di Bella Capital Group</b> operamos con alcance internacional, uniendo la solidez de los negocios físicos con la dinámica del mundo digital. Nuestro enfoque combina seguridad jurídica y tecnología avanzada para garantizar que cada activo que gestionamos tenga el respaldo necesario para operar en cualquier entorno corporativo.</p>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="como" class="view-section">
+            <div class="full-aura-view">
+                <div class="aura-card">
+                    <h2 style="margin-bottom: 20px; font-weight: 200; font-size: 2.5rem;">Nuestro Método</h2>
+                    <p style="font-size: 1.2rem; line-height: 2;">
+                          <p>Tokenizar un activo requiere un proceso riguroso que garantice seguridad y resultados. Nos manejamos en tres etapas claras:</p>
+                        <p><b>1. Evaluación y Factibilidad:</b> Arrancamos con una consultoría virtual para analizar tu activo. No usamos soluciones genéricas; estudiamos la viabilidad técnica y legal de tu proyecto de forma personalizada para asegurar que sea apto para entrar en nuestra plataforma.</p>
+                        <p><b>2. Acuerdo de Vinculación:</b> Si el proyecto es viable, firmamos un contrato donde dejamos todo en claro: los pasos a seguir, las condiciones y el esquema de comisiones. Este documento es el que habilita el uso de nuestra infraestructura legal y tecnológica para procesar tu activo.</p>
+                        <p><b>3. Cierre y Lanzamiento en Puerto Madero:</b> La firma de los contratos definitivos y el despliegue final del activo en la plataforma se realizan personalmente en las Torres Alem Plaza, Puerto Madero. Elegimos este centro de operaciones para los cierres porque nos permite trabajar junto a los especialistas que dan soporte a nuestra infraestructura, asegurando un lanzamiento seguro y profesional.</p>
+                        <p><b>Puntos clave de nuestro modelo:Infraestructura Propia:</b> El proyecto se integra y opera directamente en nuestra plataforma.</p>
+                        <p><b>Filtro de Calidad:</b> Reservamos nuestras oficinas en Puerto Madero exclusivamente para concretar los proyectos que ya están vinculados legalmente.</p>
+                        <p><b>Agilidad Inicial:</b> Resolvemos la auditoría de forma remota para que el proceso sea rápido y sin burocracia innecesaria.</p>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-contacts">
+            <a href="https://wa.me/tu-numero" class="footer-link" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:info@dibellacapitalgroup.com" class="footer-link" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://instagram.com/tu-usuario" class="footer-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p class="copyright">&copy; 2026 DI BELLA GROUP. TODOS LOS DERECHOS RESERVADOS.</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.view-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        function toggleFaq(btn) {
+            const text = btn.nextElementSibling;
+            if (text.style.maxHeight) {
+                text.style.maxHeight = null;
+            } else {
+                text.style.maxHeight = text.scrollHeight + "px";
+            }
+        }
+    </script>
+</body>
+</html>
