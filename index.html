@@ -42,6 +42,47 @@
             box-shadow: 0 10px 30px #2346CB;
         }
 
+        /* Ajustes para Dispositivos Móviles */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+                padding: 1.5rem 5%;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px;
+            }
+
+            .btn-aura {
+                padding: 8px 15px;
+                font-size: 0.7rem;
+            }
+
+            .text-intro h1 {
+                font-size: 1.8rem;
+            }
+
+            .aura-card {
+                padding: 30px 20px;
+                border-radius: 20px;
+            }
+
+            .full-aura-view {
+                padding: 20px 10px;
+            }
+
+            .info-block {
+                padding: 40px 15px;
+            }
+
+            video {
+                border-radius: 10px;
+            }
+        }
+
         .logo img {
             height: 45px;
             cursor: pointer;
