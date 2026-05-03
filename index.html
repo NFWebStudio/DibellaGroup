@@ -13,7 +13,7 @@
             --nav-bg: #2346CB;
             --pure-black: #B3B3B3;
             --pure-white: #000000;
-            --aura-glow: rgba(255, 255, 255, 0.15);
+            --aura-glow: #000000;
         }
 
         * {
@@ -109,13 +109,82 @@
         }
 
         .btn-aura:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgb(0, 0, 0);
             box-shadow: 0 0 20px var(--aura-glow);
         }
 
         .btn-main {
             background-color: rgba(255, 255, 255, 0.1);
             color: #FFFFFF !important;
+        }
+
+        /* Color blanco para textos en Nosotros y Método */
+        #quienes .aura-card, 
+        #quienes .aura-card h2, 
+        #quienes .aura-card p, 
+        #quienes .aura-card b,
+        #como .aura-card, 
+        #como .aura-card h2, 
+        #como .aura-card p, 
+        #como .aura-card b {
+            color: #FFFFFF !important;
+        }
+
+        /* Ajustes para Celulares (Responsive) */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                padding: 1rem 5%;
+                height: auto;
+            }
+
+            .nav-links {
+                margin-top: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px;
+            }
+
+            .btn-aura {
+                padding: 8px 12px;
+                font-size: 0.7rem;
+            }
+
+            .aura-card {
+                padding: 30px 20px;
+                margin: 10px;
+                border-radius: 20px;
+            }
+
+            .aura-card h2 {
+                font-size: 1.8rem !important;
+            }
+
+            .aura-card p {
+                font-size: 1rem !important;
+                line-height: 1.6 !important;
+            }
+
+            .video-block {
+                padding: 30px 10px;
+            }
+        }
+
+        /* Color negro para las respuestas de las FAQ */
+        .faq-text p {
+            color: #000000 !important;
+            font-weight: 500; /* Un poco más de peso para mejorar la legibilidad */
+        }
+
+        /* Genera espacio entre los párrafos de las secciones informativas */
+        .aura-card p {
+            margin-bottom: 20px; /* Ajusta este número para más o menos espacio */
+            display: block;
+        }
+
+        /* Quita el espacio al último párrafo para que no sobre margen abajo */
+        .aura-card p:last-child {
+            margin-bottom: 0;
         }
 
         /* SECCIONES */
@@ -219,10 +288,10 @@
         }
 
         .aura-card {
-            background: rgba(0, 0, 0, 0.3);
+            background: #2346CB;
             padding: 60px;
             border-radius: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgb(0, 0, 0);
             backdrop-filter: blur(15px);
             max-width: 800px;
         }
@@ -368,7 +437,7 @@
                 <div class="aura-card">
                     <h2 style="margin-bottom: 20px; font-weight: 200; font-size: 2.5rem;">Nuestro Método</h2>
                     <p style="font-size: 1.2rem; line-height: 2;">
-                          <p>Tokenizar un activo requiere un proceso riguroso que garantice seguridad y resultados. Nos manejamos en tres etapas claras:</p>
+                        <p>Tokenizar un activo requiere un proceso riguroso que garantice seguridad y resultados. Nos manejamos en tres etapas claras:</p>
                         <p><b>1. Evaluación y Factibilidad:</b> Arrancamos con una consultoría virtual para analizar tu activo. No usamos soluciones genéricas; estudiamos la viabilidad técnica y legal de tu proyecto de forma personalizada para asegurar que sea apto para entrar en nuestra plataforma.</p>
                         <p><b>2. Acuerdo de Vinculación:</b> Si el proyecto es viable, firmamos un contrato donde dejamos todo en claro: los pasos a seguir, las condiciones y el esquema de comisiones. Este documento es el que habilita el uso de nuestra infraestructura legal y tecnológica para procesar tu activo.</p>
                         <p><b>3. Cierre y Lanzamiento en Puerto Madero:</b> La firma de los contratos definitivos y el despliegue final del activo en la plataforma se realizan personalmente en las Torres Alem Plaza, Puerto Madero. Elegimos este centro de operaciones para los cierres porque nos permite trabajar junto a los especialistas que dan soporte a nuestra infraestructura, asegurando un lanzamiento seguro y profesional.</p>
