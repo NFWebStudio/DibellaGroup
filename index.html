@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Di Bella - Experiencia Digital</title>
+    <link rel="icon" type="image/png" href="Logo.png">
     <!-- Iconos para los contactos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -464,8 +465,11 @@
             document.querySelectorAll('.view-section').forEach(section => {
                 section.classList.remove('active');
             });
-            document.getElementById(sectionId).classList.add('active');
-            window.scrollTo({top: 0, behavior: 'smooth'});
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            }
         }
 
         function toggleFaq(btn) {
@@ -476,6 +480,19 @@
                 text.style.maxHeight = text.scrollHeight + "px";
             }
         }
+
+        // --- ESTE ES EL CÓDIGO NUEVO PARA LOS LINKS DIRECTOS ---
+        window.addEventListener('load', () => {
+            // Detecta si la URL termina en #quienes o #como
+            const hash = window.location.hash.replace('#', '');
+            
+            if (hash === 'quienes' || hash === 'como') {
+                showSection(hash);
+            } else {
+                // Si no hay hash o es diferente, muestra el inicio por defecto
+                showSection('inicio');
+            }
+        });
     </script>
 </body>
 </html>
